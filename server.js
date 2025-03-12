@@ -3,6 +3,14 @@ const { io } = require('socket.io-client');
 const https = require('https');
 require('dotenv').config();
 
+const app = require('express')();
+
+app.get('/', (req, res) => {
+    res.status(200).send('ello');
+});
+
+app.listen(4000, () =>{});
+
 const TOKEN = process.env.DISCORD_TOKEN;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
